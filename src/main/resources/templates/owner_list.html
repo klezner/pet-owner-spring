@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Owner List</title>
+    <div th:replace="pagefragments :: headers"/>
+</head>
+<body>
+    <div class="container">
+        <div th:replace="pagefragments :: navigator"/>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Birth date</th>
+                <th>Age</th>
+                <th>Number of pets</th>
+                <th>Average age of pets</th>
+                <th>Actions</th>
+            </tr>
+            <tr th:each="owner : ${listOfOwners}">
+                <td>
+                    <span th:text="${owner.id}"/>
+                </td>
+                <td>
+                    <span th:text="${owner.firstName}"/>
+                </td>
+                <td>
+                    <span th:text="${owner.lastName}"/>
+                </td>
+                <td>
+                    <span th:text="${owner.birthDate}"/>
+                </td>
+                <td>
+                    <span th:text="${owner.age}"/>
+                </td>
+                <td>
+                    <span th:text="${owner.numberOfPets}"/>
+                </td>
+                <td>
+                    <span th:text="${owner.averageAgeOfPets}"/>
+                </td>
+                <td>
+                    <a>Details</a>
+                    <a>Edit</a>
+                    <a>Remove</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div th:replace="pagefragments :: footers"/>
+</body>
+</html>

@@ -24,13 +24,13 @@ public class Owner {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate birthDate;
 
-    @Formula("year(now()) - year(birth_date)")
+    @Formula("(year(now()) - year(birth_date))")
     private Integer age;
 
-    @Formula("SELECT COUNT(*) FROM pet p WHERE id = p.owner_id")
+    @Formula("(SELECT COUNT(*) FROM pet p WHERE id = p.owner_id)")
     private Integer numberOfPets;
 
-    @Formula("SELECT AVG(p.age) FROM pet p WHERE id = p.owner_id")
+    @Formula("(SELECT AVG(p.age) FROM pet p WHERE id = p.owner_id)")
     private Double averageAgeOfPets;
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
