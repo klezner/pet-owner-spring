@@ -41,6 +41,36 @@
                 </tr>
             </table>
         </div>
+        <div>
+            <a>Add pet</a>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Owner name</th>
+                    <th>Weight</th>
+                    <th>Race</th>
+                    <th>Pure Race</th>
+                    <th>Actions</th>
+                </tr>
+                <tr th:each="pet : ${detailedOwner.petSet}">
+                    <td th:text="${pet.id}"></td>
+                    <td th:text="${pet.name}"></td>
+                    <td th:text="${pet.age}"></td>
+                    <td th:text="${pet.ownerName}"></td>
+                    <td th:text="${pet.weight}"></td>
+                    <td th:text="${pet.race.commonName}"></td>
+                    <td th:text="${pet.pureRace}"></td>
+                    <td>
+                        <a>Edit</a>
+                        <a>Remove</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
     <div th:replace="pagefragments :: footers"/>
 </body>

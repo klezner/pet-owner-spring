@@ -17,6 +17,9 @@ public class Pet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
+    private Integer age;
+
     @Formula("(SELECT CONCAT(o.first_name, ' ', o.last_name) FROM owner o WHERE owner_id = o.id)")
     private String ownerName;
 
