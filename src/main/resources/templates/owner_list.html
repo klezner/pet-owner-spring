@@ -42,7 +42,7 @@
                     <span th:text="${owner.averageAgeOfPets}"/>
                 </td>
                 <td>
-                    <a>Details</a>
+                    <a th:href="@{/owner/{id}(id=${owner.id})}">Details</a>
                     <a>Edit</a>
                     <a>Remove</a>
                 </td>

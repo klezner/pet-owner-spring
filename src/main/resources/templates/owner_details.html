@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Details</title>
+    <div th:replace="pagefragments :: headers"/>
+</head>
+<body>
+    <div class="container">
+        <div th:replace="pagefragments :: navigator"/>
+        <h1>Details of student: <span th:text="${detailedOwner.firstName} + ' ' + ${detailedOwner.lastName}"></span></h1>
+        <div>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <td th:text="${detailedOwner.id}"></td>
+                </tr>
+                <tr>
+                    <th>Imie:</th>
+                    <td th:text="${detailedOwner.firstName}"></td>
+                </tr>
+                <tr>
+                    <th>Nazwisko:</th>
+                    <td th:text="${detailedOwner.lastName}"></td>
+                </tr>
+                <tr>
+                    <th>Date of birth:</th>
+                    <td th:text="${detailedOwner.birthDate}"></td>
+                </tr>
+                <tr>
+                    <th>Age:</th>
+                    <td th:text="${detailedOwner.age}"></td>
+                </tr>
+                <tr>
+                    <th>Number of pets</th>
+                    <td th:text="${detailedOwner.numberOfPets}"></td>
+                </tr>
+                <tr>
+                    <th>Average age of pets</th>
+                    <td th:text="${detailedOwner.averageAgeOfPets}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div th:replace="pagefragments :: footers"/>
+</body>
+</html>
