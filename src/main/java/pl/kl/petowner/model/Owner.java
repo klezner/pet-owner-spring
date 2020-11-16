@@ -30,7 +30,7 @@ public class Owner {
     @Formula("(SELECT COUNT(*) FROM pet p WHERE id = p.owner_id)")
     private Integer numberOfPets;
 
-    @Formula("(SELECT AVG(p.age) FROM pet p WHERE id = p.owner_id)")
+    @Formula("(SELECT AVG(p.age) FROM pet p WHERE p.owner_id = id)")
     private Double averageAgeOfPets;
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
