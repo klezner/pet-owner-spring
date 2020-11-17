@@ -38,4 +38,15 @@ public class PetController {
         }
         return "redirect:/owner/" + ownerId;
     }
+
+    @GetMapping("/{id}")
+    public String deletePet(@RequestParam("id") Long id) {
+        Optional<Pet> petOptional = petService.findPetById(id);
+        if (petOptional.isPresent()) {
+            Pet pet = petOptional.get();
+            petService.deleteById(id);
+            return "redirect:/owner/" + pet.getOwner().getId();
+        }
+        return "redirect:/owner";
+    }
 }
