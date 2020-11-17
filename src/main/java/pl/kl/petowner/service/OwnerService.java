@@ -25,4 +25,8 @@ public class OwnerService {
     public Optional<Owner> findById(Long id) {
         return ownerRepository.findById(id);
     }
+
+    public void deleteById(Long id) {
+        ownerRepository.deleteById(id);
+    }
 }
