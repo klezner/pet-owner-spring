@@ -23,4 +23,12 @@ public class PetService {
     public void save(Pet pet) {
         petRepository.save(pet);
     }
+
+    public Optional<Pet> findPetById(Long id) {
+        return petRepository.findById(id);
+    }
+
+    public void deleteById(Long id) {
+        petRepository.deleteById(id);
+    }
 }
