@@ -52,4 +52,14 @@ public class OwnerController {
         ownerService.deleteById(id);
         return "redirect:/owner";
     }
+
+    @GetMapping("/edit/{id}")
+    public String editOwner(Model model, @PathVariable(name = "id") Long id) {
+        Optional<Owner> ownerOptional = ownerService.findById(id);
+        if (ownerOptional.isPresent()) {
+            model.addAttribute("addedOwner", ownerOptional.get());
+            return "owner_form";
+        }
+        return "redirect:/owner";
+    }
 }
