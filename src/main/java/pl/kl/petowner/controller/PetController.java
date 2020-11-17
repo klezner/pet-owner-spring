@@ -3,10 +3,7 @@ package pl.kl.petowner.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.kl.petowner.model.Owner;
 import pl.kl.petowner.model.Pet;
 import pl.kl.petowner.model.Race;
@@ -46,6 +43,19 @@ public class PetController {
             Pet pet = petOptional.get();
             petService.deleteById(id);
             return "redirect:/owner/" + pet.getOwner().getId();
+        }
+        return "redirect:/owner";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editPet(Model model, @PathVariable(name = "id") Long id) {
+        Optional<Pet> petOptional = petService.findPetById(id);
+        if (petOptional.isPresent()) {
+            Pet pet = petOptional.get();
+            model.addAttribute("addedPet", pet);
+            model.addAttribute("allRaces", Race.values());
+            model.addAttribute("ownerId", pet.getOwner().getId());
+            return "pet_form";
         }
         return "redirect:/owner";
     }
