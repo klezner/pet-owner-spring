@@ -65,7 +65,7 @@
                     <td th:text="${pet.race.commonName}"></td>
                     <td th:text="${pet.pureRace}"></td>
                     <td>
-                        <a>Edit</a>
+                        <a th:href="@{/pet/edit/{id}(id=${pet.id})}">Edit</a>
                         <a th:href="@{/pet/remove(id=${pet.id})}">Remove</a>
                     </td>
                 </tr>
